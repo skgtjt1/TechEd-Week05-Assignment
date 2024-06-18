@@ -9,23 +9,24 @@ async function fetchAndShowUserCocktails() {
   cocktailListDiv.innerHTML = "";
 
   //loop through the database entries fetched above
-  cocktailList.forEach(function (cocktails) {
+  cocktailList.forEach(function (cocktail) {
     const cocktailDiv = document.createElement("div");
 
-    cocktailDiv.innerHTML = `<p>Username: ${cocktails.username}, Cocktail Name: ${cocktails.cocktail_name}, Recipe: ${cocktails.recipe}, Rating: ${cocktails.rating}, Difficulty: ${cocktails.difficulty}, Alcohol?: ${cocktails.alcoholic} </p>`;
+    cocktailDiv.innerHTML = `<p>Username: ${cocktail.username}, Cocktail Name: ${cocktail.cocktail_name}, Recipe: ${cocktail.recipe}, Rating: ${cocktail.rating}, Difficulty: ${cocktail.difficulty}, Alcohol?: ${cocktail.alcoholic} </p>`;
     cocktailListDiv.appendChild(cocktailDiv);
   });
 }
 
 fetchAndShowUserCocktails();
 
-form.addEventListener("submit-button", submitButton);
+form.addEventListener("submit", submitButton);
 
 async function submitButton(event) {
   event.preventDefault();
 
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
+  formValues.alcoholic = formData.has("alcoholic");
 
   try {
     const response = await fetch("http://localhost:6969/usercocktails", {
@@ -41,7 +42,7 @@ async function submitButton(event) {
     if (data.success) {
       console.log("Comment uploaded to database");
       fetchAndShowUserCocktails();
-      form.reset(); //need to clear the form one submit
+      // form.reset(); //need to clear the form one submit
     } else {
       console.log("Error with database update.");
     }
