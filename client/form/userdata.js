@@ -11,8 +11,25 @@ async function fetchAndShowUserCocktails() {
   //loop through the database entries fetched above
   cocktailList.forEach(function (cocktail) {
     const cocktailDiv = document.createElement("div");
-
-    cocktailDiv.innerHTML = `<p>Username: ${cocktail.username}, Cocktail Name: ${cocktail.cocktail_name}, Recipe: ${cocktail.recipe}, Rating: ${cocktail.rating}, Difficulty: ${cocktail.difficulty}, Alcohol?: ${cocktail.alcoholic} </p>`;
+    cocktailDiv.classList.add("cocktail-results");
+    const usernameDiv = document.createElement("div");
+    const cocktailNameDiv = document.createElement("div");
+    const ingredientNumDiv = document.createElement("div");
+    const recipeDiv = document.createElement("div");
+    const difficultyDiv = document.createElement("div");
+    const alcoholicDiv = document.createElement("div");
+    usernameDiv.innerHTML = `<p>Username: ${cocktail.username}</p>`;
+    cocktailNameDiv.innerHTML = `<p>Cocktail Name: ${cocktail.cocktail_name}</p>`;
+    ingredientNumDiv.innerHTML = `Number Of Ingredients: ${cocktail.number_ingredients}</p>`;
+    recipeDiv.innerHTML = `Recipe: ${cocktail.recipe}</p>`;
+    difficultyDiv.innerHTML = `Difficulty: ${cocktail.difficulty}</p>`;
+    alcoholicDiv.innerHTML = `Alcohol: ${cocktail.alcoholic} </p>`;
+    cocktailDiv.appendChild(usernameDiv);
+    cocktailDiv.appendChild(cocktailNameDiv);
+    cocktailDiv.appendChild(ingredientNumDiv);
+    cocktailDiv.appendChild(recipeDiv);
+    cocktailDiv.appendChild(difficultyDiv);
+    cocktailDiv.appendChild(alcoholicDiv);
     cocktailListDiv.appendChild(cocktailDiv);
   });
 }
