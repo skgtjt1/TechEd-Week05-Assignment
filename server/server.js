@@ -24,7 +24,7 @@ export const db = new pg.Pool({
 
 app.get("/testing", function (req, res) {
   res.json({
-    message: "This server is accepting GET requests! Well",
+    message: "This server is accepting GET requests! Well Done!",
   });
 });
 
@@ -42,7 +42,7 @@ app.post("/usercocktails", async (req, res) => {
 
   try {
     await db.query(
-      `INSERT into cocktails (Username, cocktail_name, recipe, rating, difficulty, alcoholic ($1, $2, $3, $4, $5, $6)`,
+      `INSERT into Cocktails (Username, cocktail_name, recipe, rating, difficulty, alcoholic ($1, $2, $3, $4, $5, $6)`,
       [username, cocktailName, recipe, rating, difficulty, alcoholic]
     );
     res.status(200).json({ success: true });

@@ -1,7 +1,7 @@
 const form = document.getElementById("user-form");
 
 async function fetchAndShowUserCocktails() {
-  const response = await fetch("http://localhost:6969/usercocktails"); //need to replace with render server address on deploy https://teched-week05-assignment.onrender.com
+  const response = await fetch("http://localhost:6969/usercocktails"); //need to replace with render server address on deploy //
   const cocktailList = await response.json();
   console.log(cocktailList);
   const cocktailListDiv = document.getElementById("form-results");
@@ -12,14 +12,14 @@ async function fetchAndShowUserCocktails() {
   cocktailList.forEach(function (cocktails) {
     const cocktailDiv = document.createElement("div");
 
-    reviewDiv.innerHTML = `<p>Username: ${cocktails.username}, Cocktail Name: ${cocktails.cocktail_name}, Recipe: ${cocktails.recipe}, Rating: ${cocktails.rating}, Difficulty: ${cocktails.difficulty}, Alcohol?: ${cocktails.alcoholic} </p>`;
+    cocktailDiv.innerHTML = `<p>Username: ${cocktails.username}, Cocktail Name: ${cocktails.cocktail_name}, Recipe: ${cocktails.recipe}, Rating: ${cocktails.rating}, Difficulty: ${cocktails.difficulty}, Alcohol?: ${cocktails.alcoholic} </p>`;
     cocktailListDiv.appendChild(cocktailDiv);
   });
 }
 
 fetchAndShowUserCocktails();
 
-form.addEventListener("submit", submitButton);
+form.addEventListener("submit-button", submitButton);
 
 async function submitButton(event) {
   event.preventDefault();
@@ -40,7 +40,7 @@ async function submitButton(event) {
 
     if (data.success) {
       console.log("Comment uploaded to database");
-      fetchAndShowReviews();
+      fetchAndShowUserCocktails();
       form.reset(); //need to clear the form one submit
     } else {
       console.log("Error with database update.");
