@@ -14,6 +14,14 @@
     <form id="user-form">
       <fieldset>
         <legend>Cocktail Information</legend>
+        <label for="username">Name</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Your name"
+          required
+        />
         <label for="cocktail-name">Cocktail Name</label>
         <input
           type="text"
@@ -22,14 +30,14 @@
           placeholder="Name of cocktail"
           required
         />
-        <label for="ingredient-number">Number Of Ingredients</label>
+        <!-- <label for="ingredient-number">Number Of Ingredients</label>
         <input
           type="number"
           id="ingredient-number"
           name="ingredient-number"
           placeholder="Num of ingredients"
           required
-        />
+        /> -->
         <label for="cocktail-ingredients">Cocktail Ingredients</label>
         <textarea
           type="text"
@@ -38,10 +46,12 @@
           placeholder="List of Ingredients"
           required
         ></textarea>
+        <label for="rating">Your Rating</label>
+        <input type="number" id="rating" name="rating" required />
+        <label for="difficulty">Cocktail Difficulty</label>
+        <input type="number" id="difficulty" name="difficulty" required />
         <label for="alcoholic">Alcoholic</label>
-        <input type="radio" id="alcoholic" name="alcohol" />
-        <label for="non-alcoholic">Non-Alcoholic</label>
-        <input type="radio" id="non-alcoholic" name="alcohol" />
+        <input type="checkbox" id="alcoholic" name="alcoholic" />
         <label for="reset">Reset</label>
         <input type="reset" id="reset" name="reset" />
         <button type="submit" id="submit-button">Submit Your Cocktail</button>
