@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="/main.js" defer></script>
+    <script type="module" src="/userdata.js" defer></script>
+    <title>Shaker's Choice Form</title>
+  </head>
+  <body>
+    <h1>Tell us your recipe!</h1>
+    <form id="user-form">
+      <fieldset>
+        <legend>Cocktail Information</legend>
+        <label for="cocktail-name">Cocktail Name</label>
+        <input
+          type="text"
+          id="cocktail-name"
+          name="cocktail-name"
+          placeholder="Name of cocktail"
+          required
+        />
+        <label for="ingredient-number">Number Of Ingredients</label>
+        <input
+          type="number"
+          id="ingredient-number"
+          name="ingredient-number"
+          placeholder="Num of ingredients"
+          required
+        />
+        <label for="cocktail-ingredients">Cocktail Ingredients</label>
+        <textarea
+          type="text"
+          id="cocktail-ingredients"
+          name="cocktail-ingredients"
+          placeholder="List of Ingredients"
+          required
+        ></textarea>
+        <label for="alcoholic">Alcoholic</label>
+        <input type="radio" id="alcoholic" name="alcohol" />
+        <label for="non-alcoholic">Non-Alcoholic</label>
+        <input type="radio" id="non-alcoholic" name="alcohol" />
+        <label for="reset">Reset</label>
+        <input type="reset" id="reset" name="reset" />
+        <button type="submit" id="submit-button">Submit Your Cocktail</button>
+      </fieldset>
+    </form>
+    <div id="form-results"></div>
+  </body>
+</html>
