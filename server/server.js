@@ -37,13 +37,26 @@ app.get("/usercocktails", async (req, res) => {
 });
 
 app.post("/usercocktails", async (req, res) => {
-  const { username, cocktail_name, recipe, rating, difficulty, alcoholic } =
-    req.body;
+  const {
+    username,
+    cocktail_name,
+    number_ingredients,
+    recipe,
+    difficulty,
+    alcoholic,
+  } = req.body;
 
   try {
     await db.query(
-      `INSERT INTO cocktails (username, cocktail_name, recipe, rating, difficulty, alcoholic) VALUES ($1, $2, $3, $4, $5, $6)`,
-      [username, cocktail_name, recipe, rating, difficulty, alcoholic]
+      `INSERT INTO cocktails (username, cocktail_name, number_ingredients, recipe, difficulty, alcoholic) VALUES ($1, $2, $3, $4, $5, $6)`,
+      [
+        username,
+        cocktail_name,
+        number_ingredients,
+        recipe,
+        difficulty,
+        alcoholic,
+      ]
     );
     res.status(200).json({ success: true });
   } catch (error) {
