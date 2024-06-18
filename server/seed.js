@@ -2,15 +2,15 @@
 
 import { db } from "./server.js";
 
-db.query(`CREATE TABLE IF NOT EXISTS cocktails(
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255),
-    cocktail_name VARCHAR(255),
-    recipe TEXT,
-    rating NUMERIC,
-    difficulty INT,
-    alcoholic BOOLEAN
-    )`);
+// db.query(`CREATE TABLE IF NOT EXISTS cocktails(
+//     id SERIAL PRIMARY KEY,
+//     username VARCHAR(255),
+//     cocktail_name VARCHAR(255),
+//     recipe TEXT,
+//     rating NUMERIC,
+//     difficulty INT,
+//     alcoholic BOOLEAN
+//     )`);
 
 db.query(`INSERT INTO cocktails (username, cocktail_name, recipe, rating, difficulty, alcoholic)
         VALUES

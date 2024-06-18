@@ -31,19 +31,19 @@ app.get("/testing", function (req, res) {
 app.get("/usercocktails", async (req, res) => {
   const result = await db.query(
     `
-       SELECT * FROM Cocktails`
+       SELECT * FROM cocktails`
   );
   res.json(result.rows);
 });
 
 app.post("/usercocktails", async (req, res) => {
-  const { username, cocktailName, recipe, rating, difficulty, alcoholic } =
+  const { username, cocktail_name, recipe, rating, difficulty, alcoholic } =
     req.body;
 
   try {
     await db.query(
-      `INSERT into Cocktails (Username, cocktail_name, recipe, rating, difficulty, alcoholic ($1, $2, $3, $4, $5, $6)`,
-      [username, cocktailName, recipe, rating, difficulty, alcoholic]
+      `INSERT INTO cocktails (username, cocktail_name, recipe, rating, difficulty, alcoholic) VALUES ($1, $2, $3, $4, $5, $6)`,
+      [username, cocktail_name, recipe, rating, difficulty, alcoholic]
     );
     res.status(200).json({ success: true });
   } catch (error) {
