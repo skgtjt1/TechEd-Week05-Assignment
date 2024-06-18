@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script type="module" src="/main.js" defer></script> -->
+    <script type="module" src="/userdata.js" defer></script>
+    <title>Shaker's Choice Form</title>
+  </head>
+  <body>
+    <h1>Tell us your recipe!</h1>
+    <form id="user-form">
+      <fieldset>
+        <legend>Cocktail Information</legend>
+        <label for="username">Name</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Your name"
+          required
+        />
+        <label for="cocktail_name">Cocktail Name</label>
+        <input
+          type="text"
+          id="cocktail_name"
+          name="cocktail_name"
+          placeholder="Name of cocktail"
+          required
+        />
+        <!-- <label for="ingredient-number">Number Of Ingredients</label>
+        <input
+          type="number"
+          id="ingredient-number"
+          name="ingredient-number"
+          placeholder="Num of ingredients"
+          required
+        /> -->
+        <label for="recipe">Cocktail Ingredients</label>
+        <textarea
+          type="text"
+          id="recipe"
+          name="recipe"
+          placeholder="List of Ingredients"
+          required
+        ></textarea>
+        <label for="rating">Your Rating</label>
+        <input type="number" id="rating" name="rating" required />
+        <label for="difficulty">Cocktail Difficulty</label>
+        <input type="number" id="difficulty" name="difficulty" required />
+        <label for="alcoholic">Alcoholic</label>
+        <input type="checkbox" id="alcoholic" name="alcoholic" />
+        <label for="reset">Reset</label>
+        <input type="reset" id="reset" name="reset" />
+        <button type="submit" id="submit-button">Submit Your Cocktail</button>
+      </fieldset>
+    </form>
+    <div id="form-results"></div>
+  </body>
+</html>

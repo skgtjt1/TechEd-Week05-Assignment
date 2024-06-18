@@ -24,31 +24,30 @@ export const db = new pg.Pool({
 
 app.get("/testing", function (req, res) {
   res.json({
-    message: "This server is accepting GET requests! Well",
+    message: "This server is accepting GET requests! Well Done!",
   });
 });
 
-// reference get and post endpoints
+app.get("/usercocktails", async (req, res) => {
+  const result = await db.query(
+    `
+       SELECT * FROM cocktails`
+  );
+  res.json(result.rows);
+});
 
-// app.get("/reviews", async (req, res) => {
-//     const result = await db.query(
-//       `
-//        SELECT * FROM Reviews`
-//     );
-//     res.json(result.rows);
-//   });
+app.post("/usercocktails", async (req, res) => {
+  const { username, cocktail_name, recipe, rating, difficulty, alcoholic } =
+    req.body;
 
-//   app.post("/reviews", async (req, res) => {
-//     const { username, comment, score } = req.body;
-
-//     try {
-//       await db.query(
-//         `INSERT into Reviews (Username, Comment, Score) VALUES ($1, $2, $3)`,
-//         [username, comment, score]
-//       );
-//       res.status(200).json({ success: true });
-//     } catch (error) {
-//       console.error("NOOOOOOOO NO INSERT FOR YOU", error);
-//       res.status(500).json({ success: false });
-//     }
-//   });
+  try {
+    await db.query(
+      `INSERT INTO cocktails (username, cocktail_name, recipe, rating, difficulty, alcoholic) VALUES ($1, $2, $3, $4, $5, $6)`,
+      [username, cocktail_name, recipe, rating, difficulty, alcoholic]
+    );
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("NO INSERT FOR YOU", error);
+    res.status(500).json({ success: false });
+  }
+});
