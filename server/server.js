@@ -28,27 +28,26 @@ app.get("/testing", function (req, res) {
   });
 });
 
-// reference get and post endpoints
+app.get("/usercocktails", async (req, res) => {
+  const result = await db.query(
+    `
+       SELECT * FROM Cocktails`
+  );
+  res.json(result.rows);
+});
 
-// app.get("/reviews", async (req, res) => {
-//     const result = await db.query(
-//       `
-//        SELECT * FROM Reviews`
-//     );
-//     res.json(result.rows);
-//   });
+app.post("/usercocktails", async (req, res) => {
+  const { username, cocktailName, recipe, rating, difficulty, alcoholic } =
+    req.body;
 
-//   app.post("/reviews", async (req, res) => {
-//     const { username, comment, score } = req.body;
-
-//     try {
-//       await db.query(
-//         `INSERT into Reviews (Username, Comment, Score) VALUES ($1, $2, $3)`,
-//         [username, comment, score]
-//       );
-//       res.status(200).json({ success: true });
-//     } catch (error) {
-//       console.error("NOOOOOOOO NO INSERT FOR YOU", error);
-//       res.status(500).json({ success: false });
-//     }
-//   });
+  try {
+    await db.query(
+      `INSERT into cocktails (Username, cocktail_name, recipe, rating, difficulty, alcoholic ($1, $2, $3, $4, $5, $6)`,
+      [username, cocktailName, recipe, rating, difficulty, alcoholic]
+    );
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("NO INSERT FOR YOU", error);
+    res.status(500).json({ success: false });
+  }
+});

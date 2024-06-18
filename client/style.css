@@ -1,5 +1,210 @@
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+#header-icon {
+    position: absolute;
+    font-size: 1.4em;
+    top: 25%;
+    color: #fff;
+    position: absolute;
+    left:5%;
+}
+
+#header-icon:hover,
+nav ul li a:hover {
+    color: rgb(75, 65, 65);
+}
+
+
+.nav-flex-container {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+}
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+    font-size: 0.8em;
+    height: 80px;
+    padding: 40px 100px 15px 50px;
+    z-index: 100;
+    color: black;
+    
+}
+
+nav ul li a{ 
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px; /* Base font size */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+
+}
+nav ul li a:hover {
+    background-color: rgb(255, 255, 255);
+    font-size: 25.22px;
+    
+}
+nav {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    z-index: 5;
+    position: fixed;
+
+}
+.ul li {
+    justify-self: center;
+    align-self: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 28px;
+    height: 100vh;
+    width: 100%;
+    background-image:url(../client/assets/body.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* =============HAMBURGER NAV ICON ==================*/
+#hamb-container {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    display: none;
+    right: 3%;
+    top: 20px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+#show {
+    display: none;
+}
+
 fieldset {
   display: flex;
   flex-direction: column;
   width: 60vw;
+
+
+
+/* Media query for devices with screen width of 480px or less */
+@media only screen and (max-width: 880px) {
+    .bar1, .bar2, .bar3 {
+        width: 30px;
+        height: 4px;
+        margin: 5px 0;
+    }
+
+    nav {
+        position: relative;
+    }
+    .nav-mob-container {
+        position: absolute;
+        right:0;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        display: inline;
+        background-color: red;
+        z-index: 5;
+        
+    }
+    .showing {
+        background-color: rgb(130, 114, 86);
+        height: 100vh;
+        width: 65%;
+        /* transition: background-color 2s ease-in; */
+        position: absolute;
+        right: 0;
+        z-index: -1;
+    }
+    .showing li {
+        font-size: 100px;
+        width: 100%;
+    }
+
+    #hamb-container{
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        background-color: #000000;
+        position: absolute;
+        top: 27px;
+        right: 8%;  
+        z-index: 100;
+    }
+    
+
+    #header-icon {
+        position: absolute;
+        top: 25px;
+        left: 6%;
+        color: rgb(255, 255, 255);
+    }
+
+    
+}
+
+/* Media query for devices with screen width of 320px or less */
+@media only screen and (max-width: 320px) {
+    .bar1, .bar2, .bar3 {
+        width: 25px;
+        height: 3px;
+        margin: 4px 0;
+    }
+
+
+}
+
+/* Change for the transformation */
+.change .bar1 {
+    transform: rotate(-45deg) translate(-5px, 8px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-5px, -8px);
+}
+
+
+
+footer {
+    position: absolute;
+    bottom: -30px;
+    left: 10px;
+    font-size: 1.1em;
+    color: #fff;
+    height:50px;
+    width: 100%;
+}
+
+@media only screen and (min-width:750px) {
+
+    #show {
+        display: flex;
+    }
 }
