@@ -44,6 +44,8 @@ async function submitButton(event) {
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
   formValues.alcoholic = formData.has("alcoholic");
+  // clear form on submit
+  form.reset();
 
   try {
     const response = await fetch("http://localhost:6969/usercocktails", {

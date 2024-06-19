@@ -51,7 +51,6 @@ function displayCocktail(drink) {
 }
 
 // create button to refresh the cocktail displayed
-
 // query selector here is getting the anchor inside the #refresh section
 let refresh = document.querySelector("#refresh a");
 refresh.addEventListener("click", (event) => {

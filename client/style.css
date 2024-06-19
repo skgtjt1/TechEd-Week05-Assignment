@@ -288,6 +288,24 @@ img {
   width: 300px;
 }
 
+#refresh {
+  margin: 2rem 1rem;
+}
+
+#refresh > a {
+  padding: 1rem;
+  background-color: purple;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+#refresh > a:hover {
+  background-color: plum;
+  color: black;
+}
+
 /* ================================ MEDIA QUERIES ==================================================== */
 
 /* Media query for devices with screen width of 880px or less */
