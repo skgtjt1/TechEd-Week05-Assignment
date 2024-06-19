@@ -18,12 +18,30 @@ async function fetchAndShowUserCocktails() {
     const recipeDiv = document.createElement("div");
     const difficultyDiv = document.createElement("div");
     const alcoholicDiv = document.createElement("div");
+    const submissionDateDiv = document.createElement("div");
     usernameDiv.innerHTML = `<p>Username: ${cocktail.username}</p>`;
     cocktailNameDiv.innerHTML = `<p>Cocktail Name: ${cocktail.cocktail_name}</p>`;
     ingredientNumDiv.innerHTML = `Number Of Ingredients: ${cocktail.number_ingredients}</p>`;
     recipeDiv.innerHTML = `Recipe: ${cocktail.recipe}</p>`;
     difficultyDiv.innerHTML = `Difficulty: ${cocktail.difficulty}</p>`;
-    alcoholicDiv.innerHTML = `Alcohol: ${cocktail.alcoholic} </p>`;
+    const alcoholicText = cocktail.alcoholic ? "Yes" : "No"; //found this little trick to convert boolean to yes/no using a "ternary" operator, basically if true then "Yes", if false then "No".
+    alcoholicDiv.innerHTML = `<p>Alcohol: ${alcoholicText}</p>`;
+    // delete button
+    submissionDateDiv.innerHTML = `<p>${new Date(
+      cocktail.submission_date
+    ).toLocaleString([], {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      // hour: "2-digit",
+      // minute: "2-digit",
+    })}</p>`; //found the options parameter for toLOcaleString,
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.onclick = async function () {
+      await deleteCocktail(cocktail.id);
+      fetchAndShowUserCocktails(); // Refresh the list after deletion
+    };
 
     cocktailDiv.append(
       usernameDiv,
@@ -31,7 +49,9 @@ async function fetchAndShowUserCocktails() {
       ingredientNumDiv,
       recipeDiv,
       difficultyDiv,
-      alcoholicDiv
+      alcoholicDiv,
+      submissionDateDiv,
+      deleteButton
     );
     cocktailListDiv.appendChild(cocktailDiv);
   });
@@ -60,6 +80,7 @@ async function submitButton(event) {
 
   try {
     const response = await fetch("http://localhost:6969/usercocktails", {
+      //Replace on deployment
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,6 +96,29 @@ async function submitButton(event) {
       // form.reset(); //need to clear the form one submit
     } else {
       console.log("Error with database update.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+async function deleteCocktail(cocktailId) {
+  const url = `http://localhost:6969/usercocktails/${cocktailId}`; //need to replace with render server address when deploying
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log("Cocktail deleted successfully:", data);
+    } else {
+      console.error("Failed to delete cocktail:", data.message);
     }
   } catch (error) {
     console.error("Error:", error);
