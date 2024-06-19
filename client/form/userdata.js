@@ -1,7 +1,9 @@
 const form = document.getElementById("user-form");
 
 async function fetchAndShowUserCocktails() {
-  const response = await fetch("http://localhost:6969/usercocktails"); //need to replace with render server address on deploy //
+  const response = await fetch(
+    "https://teched-week05-assignment.onrender.com/usercocktails"
+  ); //need to replace with render server address on deploy // - replaced now
   const cocktailList = await response.json();
   console.log(cocktailList);
   const cocktailListDiv = document.getElementById("form-results");
@@ -79,14 +81,18 @@ async function submitButton(event) {
   form.reset();
 
   try {
-    const response = await fetch("http://localhost:6969/usercocktails", {
-      //Replace on deployment
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formValues),
-    });
+    const response = await fetch(
+      "https://teched-week05-assignment.onrender.com/usercocktails",
+      {
+        //replaced now
+        //Replace on deployment
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      }
+    );
 
     const data = await response.json();
 
@@ -103,7 +109,7 @@ async function submitButton(event) {
 }
 
 async function deleteCocktail(cocktailId) {
-  const url = `http://localhost:6969/usercocktails/${cocktailId}`; //need to replace with render server address when deploying
+  const url = `https://teched-week05-assignment.onrender.com/usercocktails/${cocktailId}`; //need to replace with render server address when deploying - replaced now
 
   try {
     const response = await fetch(url, {
