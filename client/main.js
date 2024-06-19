@@ -13,19 +13,17 @@ container.addEventListener("click", function () {
   }
 });
 
+//Hamburger icon animation function
+// const container = document.getElementById('hamb-container');
+// const ul = document.getElementById('show');
 
-//Hamburger icon animation function 
-const container = document.getElementById('hamb-container');
-const ul = document.getElementById('show');
-
-container.addEventListener("click", function() {
-    this.classList.toggle("change");
-    ul.classList.toggle("nav-mob-container");
+container.addEventListener("click", function () {
+  this.classList.toggle("change");
+  ul.classList.toggle("nav-mob-container");
 });
 
 // search bar code
 const searchBar = document.getElementById("search-bar");
-
 
 const searchBarButton = document.getElementById("search-bar-button");
 searchBarButton.addEventListener("click", (event) => {
