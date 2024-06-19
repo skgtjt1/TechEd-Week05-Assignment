@@ -24,15 +24,26 @@ async function fetchAndShowUserCocktails() {
     recipeDiv.innerHTML = `Recipe: ${cocktail.recipe}</p>`;
     difficultyDiv.innerHTML = `Difficulty: ${cocktail.difficulty}</p>`;
     alcoholicDiv.innerHTML = `Alcohol: ${cocktail.alcoholic} </p>`;
-    cocktailDiv.appendChild(usernameDiv);
-    cocktailDiv.appendChild(cocktailNameDiv);
-    cocktailDiv.appendChild(ingredientNumDiv);
-    cocktailDiv.appendChild(recipeDiv);
-    cocktailDiv.appendChild(difficultyDiv);
-    cocktailDiv.appendChild(alcoholicDiv);
+
+    cocktailDiv.append(
+      usernameDiv,
+      cocktailNameDiv,
+      ingredientNumDiv,
+      recipeDiv,
+      difficultyDiv,
+      alcoholicDiv
+    );
     cocktailListDiv.appendChild(cocktailDiv);
   });
 }
+
+// cocktailDiv.appendChild(usernameDiv);
+// cocktailDiv.appendChild(cocktailNameDiv);
+// cocktailDiv.appendChild(ingredientNumDiv);
+// cocktailDiv.appendChild(recipeDiv); condensed this down with .append
+// cocktailDiv.appendChild(difficultyDiv);
+// cocktailDiv.appendChild(alcoholicDiv);
+// cocktailListDiv.appendChild(cocktailDiv);
 
 fetchAndShowUserCocktails();
 
