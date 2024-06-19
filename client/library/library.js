@@ -10,7 +10,6 @@ async function fetchRandomCocktail() {
 fetchRandomCocktail();
 
 function displayCocktail(drink) {
-  console.log(drink);
   // drink title
   let mainDiv = document.getElementById("library-div");
   mainDiv.innerHTML = "";
