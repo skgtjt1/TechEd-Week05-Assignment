@@ -270,6 +270,24 @@ fieldset > button {
   padding: 0.5rem 0;
 }
 
+/* temporary code as waiting for css fix and then we can style :) */
+#library-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: pink;
+  width: 90vw;
+  height: 100vh;
+  padding: 1rem;
+}
+
+img {
+  width: 300px;
+}
+
 /* ================================ MEDIA QUERIES ==================================================== */
 
 /* Media query for devices with screen width of 880px or less */
