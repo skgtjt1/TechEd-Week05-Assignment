@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/9d979a3df6.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/9d979a3df6.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Shaker's Choice</title>
@@ -15,16 +18,16 @@
       <div class="nav-flex-container">
         <div class="logo">
           <nav>
-            <a href=""><i class="fas fa-home" id="header-icon"></i></a>
+            <a href="/"><i class="fas fa-home" id="header-icon"></i></a>
             <div id="hamb-container">
               <div class="bars bar1"></div>
               <div class="bars bar2"></div>
               <div class="bars bar3"></div>
             </div>
             <ul id="show" class="hamb-table">
-              <li><a href="#Categories">Categories</a></li>
-              <li><a href="./library/library.html ">Cocktail Library</a></li>
-              <li><a href="./form/form.html">Submit Recipe</a></li>
+              <!-- <li><a href="#Categories">Categories</a></li> -->
+              <li><a href="/library/">Random Cocktail</a></li>
+              <li><a href="/form/">Submit Recipe</a></li>
               <li><a href="#About">About</a></li>
             </ul>
           </nav>
@@ -34,22 +37,31 @@
     <!-- END OF : Nav bar for landing page -->
     <!-- SEARCH BAR -->
     <div class="search-bar">
-      <input type="text" placeholder="Find your poison...">
-      <button type="submit">Search</button>
+      <input
+        type="text"
+        name="search-bar"
+        id="search-bar"
+        placeholder="Find your poison..."
+      />
+      <button id="search-bar-button" type="submit">Search</button>
     </div>
     <!-- END OF - SEARCH BAR -->
     
       <!-- HERO SECTION -->
-      <div class="hero-section">
-        <h1 class="hero-h1">Welcome To <span>The Shaker's Choice</span> bruv</h1>
-        <h2 class="hero-h2">find your poison!</h2>
-        <button class="cta">Browse the menu</button>
-      </div>
+    <div class="hero-section">
+      <h1 class="hero-h1">Welcome To <span>The Shaker's Choice</span> bruv</h1>
+      <h2 class="hero-h2">find your poison!</h2>
+      <!-- <button class="cta">Browse the menu</button> -->
+      <p id="drink-suggestion">
+        Throw in your favourite ingredient to our search bar and we will give
+        you some suggestions!
+      </p>
+      <section id="drink-suggestion-div"></section>
+    </div>
       <!--END OF -  HERO SECTION -->
-
-
-
+    
     <div id="app"></div>
+
 
     <footer>Made by Justin, Emily, Ramunas &copy;2024</footer>
 

@@ -37,17 +37,50 @@ app.get("/usercocktails", async (req, res) => {
 });
 
 app.post("/usercocktails", async (req, res) => {
-  const { username, cocktail_name, recipe, rating, difficulty, alcoholic } =
-    req.body;
+  const {
+    username,
+    cocktail_name,
+    number_ingredients,
+    recipe,
+    difficulty,
+    alcoholic,
+  } = req.body;
 
   try {
     await db.query(
-      `INSERT INTO cocktails (username, cocktail_name, recipe, rating, difficulty, alcoholic) VALUES ($1, $2, $3, $4, $5, $6)`,
-      [username, cocktail_name, recipe, rating, difficulty, alcoholic]
+      `INSERT INTO cocktails (username, cocktail_name, number_ingredients, recipe, difficulty, alcoholic) VALUES ($1, $2, $3, $4, $5, $6)`,
+      [
+        username,
+        cocktail_name,
+        number_ingredients,
+        recipe,
+        difficulty,
+        alcoholic,
+      ]
     );
     res.status(200).json({ success: true });
   } catch (error) {
     console.error("NO INSERT FOR YOU", error);
+    res.status(500).json({ success: false });
+  }
+});
+
+// adding a delete endpoint
+
+app.delete("/usercocktails/:id", async (req, res) => {
+  //the :id allows the unique table id to be passed along from the client
+  const { id } = req.params; //the params property is how you access the id passed along from the url into the id object
+
+  try {
+    const result = await db.query(`DELETE FROM cocktails WHERE id = $1`, [id]);
+
+    if (result.rowCount > 0) {
+      res.status(200).json({ success: true });
+    } else {
+      res.status(404).json({ success: false, message: "Cocktail not found" });
+    }
+  } catch (error) {
+    console.error("Failed to delete cocktail", error);
     res.status(500).json({ success: false });
   }
 });

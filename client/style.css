@@ -15,8 +15,6 @@ Typically includes shades of white, gray, and black. These colors are used for t
 Background Color:
  */
 
-
-
 * {
   padding: 0;
   margin: 0;
@@ -73,6 +71,7 @@ nav ul li a{
     text-decoration: none;
     color: #fff;
     font-size: 25px; /* Base font size */
+
 }
 
 nav ul li a:hover {
@@ -110,17 +109,14 @@ nav ul li a:hover {
   transition: 0.4s;
 }
 
- /* ======================================================================== */
-
- 
 footer {
-    position: absolute;
-    bottom: -30px;
-    left: 10px;
-    font-size: 1.1em;
-    color: #fff;
-    height:50px;
-    width: 100%;
+  position: absolute;
+  bottom: -30px;
+  left: 10px;
+  font-size: 1.1em;
+  color: #fff;
+  height: 50px;
+  width: 100%;
 }
 
 /* ==================================== SEARCH BAR ============================================== */
@@ -140,28 +136,27 @@ footer {
 }
 
 .search-bar input:hover {
-    background-color: rgb(26, 25, 25);
+  background-color: rgb(26, 25, 25);
 }
 
 .search-bar button {
-    background-color: #fff;
-    width: 100px;
-    height: 50px;
-    margin-top: 22px;
-    font-size: 22px;
-    border: none;
-    border-radius: .5em;
+  background-color: #fff;
+  width: 100px;
+  height: 50px;
+  margin-top: 22px;
+  font-size: 22px;
+  border: none;
+  border-radius: 0.5em;
 }
 .search-bar button:hover {
-    background-color: #a9a8a8;
-    cursor: pointer;
+  background-color: #a9a8a8;
+  cursor: pointer;
 }
-
 
 .search-bar placeholder {
-    color: aliceblue;
+  color: aliceblue;
 }
- /* ======================================================================== */
+/* ======================================================================== */
 
 /* ==================================== HERO SECTION ============================================== */
 .hero-section {
@@ -178,15 +173,13 @@ footer {
 .hero-h1 {
     font-size: 4.5em;
     padding: 1.5em 1.5em 0 1.5em;
-
 }
 
 .hero-h2 {
-    font-size: 2.5em;
-    color: rgb(128, 126, 123);
-    padding: 50px 0 30px 120px;
-    text-transform: capitalize;
-
+  font-size: 2.5em;
+  color: rgb(128, 126, 123);
+  padding: 50px 0 30px 120px;
+  text-transform: capitalize;
 }
 
 .cta {
@@ -200,23 +193,121 @@ footer {
     background-color: rgb(0, 0, 0);
     cursor: pointer;
     border-radius: 1em;
-
 }
 
 .cta:hover {
-    background-color: rgb(51, 49, 49);
+  background-color: rgb(51, 49, 49);
 }
 
- /* ======================================================================== */
+/* ======================================================================== */
 
-
+#form-div {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  width: 90vw;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  z-index: 1001;
+  opacity: 0.9;
+  padding: 1rem;
+}
 
 fieldset {
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: 70vw;
+  padding-top: 0.5rem;
 }
 
+legend {
+  font-size: 25px;
+}
+
+fieldset > label {
+  padding-top: 1rem;
+  padding-bottom: 0.2rem;
+}
+
+#alcoholic {
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+fieldset > button {
+  width: fit-content;
+  padding: 0 0.5rem;
+}
+
+#form-results {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90vw;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  z-index: 1001;
+  opacity: 0.9;
+  padding: 1rem;
+}
+
+.cocktail-results {
+  width: 70vw;
+  padding-top: 1.5rem;
+  border-bottom: 2px solid black;
+}
+
+.cocktail-results > div {
+  padding: 0.5rem 0;
+}
+
+/* temporary code as waiting for css fix and then we can style :) */
+#library-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: pink;
+  width: 90vw;
+  height: 100vh;
+  padding: 1rem;
+}
+
+img {
+  width: 300px;
+}
+
+#refresh {
+  margin: 2rem 1rem;
+}
+
+#refresh > a {
+  padding: 1rem;
+  background-color: purple;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+#refresh > a:hover {
+  background-color: plum;
+  color: black;
+}
+
+#drink-suggestion {
+  position: relative;
+  background-color: #fff;
+}
+
+#drink-suggestion-div {
+  position: relative;
+  background-color: #fff;
+}
 
 footer {
   position: absolute;
@@ -353,8 +444,6 @@ footer {
       justify-self: flex-end;
       width: 80%;
     }
-
-
 }
 
 @media only screen and (max-width: 785px) {
@@ -368,6 +457,7 @@ footer {
     position: unset;
     padding: .5em;
   }
+
 
   .hero-h1 {
     padding: .8em;
@@ -405,7 +495,6 @@ footer {
     background-color: rgb(255, 255, 255);
     margin: 30px auto;
     width: 90%;
-    /* height: auto; */
   }
   .hero-h1 {
     padding: 1em;
@@ -413,16 +502,13 @@ footer {
   }
 
   .hero-h2 {
-    /* text-align: center; */
     position: unset;
     margin: 20px auto 30px 75px ;
     padding: 0;
   }
   .cta {
     background-color: red;
-    margin: 10px auto;
-    /* position: absolute; */
-
-    
+    margin: 10px auto;    
   }
 }
+
