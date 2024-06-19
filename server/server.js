@@ -8,7 +8,11 @@ dotenv.config();
 
 app.use(express.json());
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://shakers-choice.onrender.com",
+  })
+);
 
 const dbConnectionString = process.env.DATABASE_URL;
 
