@@ -306,6 +306,16 @@ img {
   color: black;
 }
 
+#drink-suggestion {
+  position: relative;
+  background-color: #fff;
+}
+
+#drink-suggestion-div {
+  position: relative;
+  background-color: #fff;
+}
+
 /* ================================ MEDIA QUERIES ==================================================== */
 
 /* Media query for devices with screen width of 880px or less */
