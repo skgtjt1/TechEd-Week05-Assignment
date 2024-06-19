@@ -7,10 +7,8 @@
       src="https://kit.fontawesome.com/9d979a3df6.js"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="stylesheet" href="../reset.css" />
-    <link rel="stylesheet" href="../style.css" />
-    <!-- <script type="module" src="/main.js" defer></script> -->
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="./style.css" />
     <script type="module" src="./userdata.js" defer></script>
     <title>Shaker's Choice Form</title>
   </head>
@@ -19,9 +17,7 @@
       <div class="nav-flex-container">
         <div class="logo">
           <nav>
-            <a href="./index.html"
-              ><i class="fas fa-home" id="header-icon"></i
-            ></a>
+            <a href="/"><i class="fas fa-home" id="header-icon"></i></a>
             <div id="hamb-container">
               <div class="bars bar1"></div>
               <div class="bars bar2"></div>
@@ -29,64 +25,70 @@
             </div>
             <ul id="show" class="hamb-table">
               <li><a href="#Categories">Categories</a></li>
-              <li><a href="./library/index.html ">Cocktail Library</a></li>
-              <li><a href="./form/index.html">Submit Recipe</a></li>
+              <li><a href="/library/">Random Cocktail</a></li>
+              <li><a href="/form/">Submit Recipe</a></li>
               <li><a href="#About">About</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <div id="form-div">
-      <form id="user-form">
-        <!-- <h1>Tell us your recipe!</h1> -->
-        <fieldset>
-          <legend>Cocktail Information</legend>
-          <label for="username">Your Name</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder=""
-            required
-          />
-          <label for="cocktail_name">Cocktail Name</label>
-          <input
-            type="text"
-            id="cocktail_name"
-            name="cocktail_name"
-            placeholder=""
-            required
-          />
-          <label for="number_ingredients">Number Of Ingredients</label>
-          <input
-            type="number"
-            id="number_ingredients"
-            name="number_ingredients"
-            placeholder=""
-            required
-          />
-          <label for="recipe">Cocktail Ingredients</label>
-          <textarea
-            type="text"
-            id="recipe"
-            name="recipe"
-            placeholder=""
-            required
-          ></textarea>
-          <!-- <label for="rating">Your Rating</label> -->
-          <!-- <input type="number" id="rating" name="rating" required /> -->
-          <label for="difficulty">Cocktail Difficulty</label>
-          <input type="number" id="difficulty" name="difficulty" required />
-          <label for="alcoholic">Alcoholic</label>
-          <input type="checkbox" id="alcoholic" name="alcoholic" />
-          <!-- <label for="reset">Reset</label> -->
-          <!-- <input type="reset" id="reset" name="reset" /> -->
-          <button type="submit" id="submit-button">Submit Your Cocktail</button>
-        </fieldset>
-      </form>
-    </div>
-    <div id="form-results"></div>
-    <!-- <footer>Made by Justin, Emily, Ramunas &copy;2024</footer> -->
+    <main>
+      <section id="form-div">
+        <form id="user-form">
+          <fieldset>
+            <legend>Cocktail Information</legend>
+            <label for="username">Your Name</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="John Doe"
+              required
+            />
+            <label for="cocktail_name">Cocktail Name</label>
+            <input
+              type="text"
+              id="cocktail_name"
+              name="cocktail_name"
+              placeholder="Mojito"
+              required
+            />
+            <label for="number_ingredients">Number Of Ingredients</label>
+            <input
+              type="number"
+              id="number_ingredients"
+              name="number_ingredients"
+              placeholder="5"
+              required
+            />
+            <label for="recipe">Cocktail Ingredients</label>
+            <textarea
+              id="recipe"
+              name="recipe"
+              placeholder="Ingredients and instructions..."
+              required
+            ></textarea>
+            <label for="difficulty">Cocktail Difficulty (1-5)</label>
+            <input
+              type="number"
+              id="difficulty"
+              name="difficulty"
+              min="1"
+              max="5"
+              required
+            />
+            <label for="alcoholic">
+              <input type="checkbox" id="alcoholic" name="alcoholic" />
+              Alcoholic
+            </label>
+            <button type="submit" id="submit-button">
+              Submit Your Cocktail
+            </button>
+          </fieldset>
+        </form>
+      </section>
+      <section id="form-results"></section>
+    </main>
   </body>
 </html>
