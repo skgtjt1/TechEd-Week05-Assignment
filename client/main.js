@@ -7,6 +7,7 @@ const ul = document.getElementById('show');
 container.addEventListener("click", function() {
     this.classList.toggle("change");
     ul.classList.toggle("nav-mob-container");
+
 });
 
 // search bar code

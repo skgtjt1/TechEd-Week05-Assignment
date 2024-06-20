@@ -14,12 +14,14 @@ db.query(`CREATE TABLE IF NOT EXISTS cocktails(
 
     )`);
 
-// db.query(`INSERT INTO cocktails (username, cocktail_name, number_ingredients, recipe, difficulty, alcoholic)
-//         VALUES (
-//         'Emily',
-//         'Spritz',
-//         4,
-//         '1 ounce vodka, lemon wedge, dash of lime, fill rest of glass with soda',
-//          2,
-//          TRUE)
-//         `);
+db.query(`INSERT INTO cocktails (username, cocktail_name, number_ingredients, recipe, difficulty, alcoholic)
+        VALUES (
+        'Emily',
+        'Spritz',
+        4,
+        '1 ounce vodka, lemon wedge, dash of lime, fill rest of glass with soda',
+         2,
+         TRUE,
+
+         )
+        `);

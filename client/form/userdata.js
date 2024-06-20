@@ -1,17 +1,18 @@
 const form = document.getElementById("user-form");
+const serverURL = "hhttps://teched-week05-assignment.onrender.com"; // made this a variable since I got sick of swttching the address for all endpoints when testing locally
+//this is the current render.com server address https://teched-week05-assignment.onrender.com
 
 async function fetchAndShowUserCocktails() {
-  const response = await fetch("http://localhost:6969/usercocktails"); //need to replace with render server address on deploy //
+  const response = await fetch(`${serverURL}/usercocktails`);
   const cocktailList = await response.json();
   console.log(cocktailList);
   const cocktailListDiv = document.getElementById("form-results");
-  //blank out the div before populating with entries fetched from database
-  cocktailListDiv.innerHTML = "";
+  cocktailListDiv.innerHTML = ""; // clear previous results
 
-  //loop through the database entries fetched above
   cocktailList.forEach(function (cocktail) {
     const cocktailDiv = document.createElement("div");
     cocktailDiv.classList.add("cocktail-results");
+
     const usernameDiv = document.createElement("div");
     const cocktailNameDiv = document.createElement("div");
     const ingredientNumDiv = document.createElement("div");
@@ -19,23 +20,22 @@ async function fetchAndShowUserCocktails() {
     const difficultyDiv = document.createElement("div");
     const alcoholicDiv = document.createElement("div");
     const submissionDateDiv = document.createElement("div");
-    usernameDiv.innerHTML = `<p>Username: ${cocktail.username}</p>`;
-    cocktailNameDiv.innerHTML = `<p>Cocktail Name: ${cocktail.cocktail_name}</p>`;
-    ingredientNumDiv.innerHTML = `Number Of Ingredients: ${cocktail.number_ingredients}</p>`;
-    recipeDiv.innerHTML = `Recipe: ${cocktail.recipe}</p>`;
-    difficultyDiv.innerHTML = `Difficulty: ${cocktail.difficulty}</p>`;
-    const alcoholicText = cocktail.alcoholic ? "Yes" : "No"; //found this little trick to convert boolean to yes/no using a "ternary" operator, basically if true then "Yes", if false then "No".
-    alcoholicDiv.innerHTML = `<p>Alcohol: ${alcoholicText}</p>`;
-    // delete button
-    submissionDateDiv.innerHTML = `<p>${new Date(
+
+    usernameDiv.innerHTML = `<p><span style="font-weight: bold;">Username: </span>${cocktail.username}</p>`;
+    cocktailNameDiv.innerHTML = `<p><span style="font-weight: bold;">Cocktail: </span>${cocktail.cocktail_name}</p>`;
+    ingredientNumDiv.innerHTML = `<p><span style="font-weight: bold;">No. Ingredients: </span>${cocktail.number_ingredients}</p>`;
+    recipeDiv.innerHTML = `<p><span style="font-weight: bold;">Recipe: </span>${cocktail.recipe}</p>`;
+    difficultyDiv.innerHTML = `<p><span style="font-weight: bold;">Difficulty: </span>${cocktail.difficulty}</p>`;
+    const alcoholicText = cocktail.alcoholic ? "Yes" : "No";
+    alcoholicDiv.innerHTML = `<p><span style="font-weight: bold;">Alcohol: </span>${alcoholicText}</p>`;
+    submissionDateDiv.innerHTML = `<p style="font-style: italic; font-size: smaller;"> ${new Date(
       cocktail.submission_date
     ).toLocaleString([], {
       year: "numeric",
       month: "numeric",
       day: "numeric",
-      // hour: "2-digit",
-      // minute: "2-digit",
-    })}</p>`; //found the options parameter for toLOcaleString,
+    })}</p>`;
+
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
     deleteButton.onclick = async function () {
@@ -53,17 +53,10 @@ async function fetchAndShowUserCocktails() {
       submissionDateDiv,
       deleteButton
     );
+
     cocktailListDiv.appendChild(cocktailDiv);
   });
 }
-
-// cocktailDiv.appendChild(usernameDiv);
-// cocktailDiv.appendChild(cocktailNameDiv);
-// cocktailDiv.appendChild(ingredientNumDiv);
-// cocktailDiv.appendChild(recipeDiv); condensed this down with .append
-// cocktailDiv.appendChild(difficultyDiv);
-// cocktailDiv.appendChild(alcoholicDiv);
-// cocktailListDiv.appendChild(cocktailDiv);
 
 fetchAndShowUserCocktails();
 
@@ -75,12 +68,9 @@ async function submitButton(event) {
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
   formValues.alcoholic = formData.has("alcoholic");
-  // clear form on submit
-  form.reset();
 
   try {
-    const response = await fetch("http://localhost:6969/usercocktails", {
-      //Replace on deployment
+    const response = await fetch(`${serverURL}/usercocktails`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -91,9 +81,9 @@ async function submitButton(event) {
     const data = await response.json();
 
     if (data.success) {
-      console.log("Comment uploaded to database");
+      console.log("Cocktail uploaded to database");
       fetchAndShowUserCocktails();
-      // form.reset(); //need to clear the form one submit
+      form.reset(); // clear form on submit success
     } else {
       console.log("Error with database update.");
     }
@@ -103,7 +93,7 @@ async function submitButton(event) {
 }
 
 async function deleteCocktail(cocktailId) {
-  const url = `http://localhost:6969/usercocktails/${cocktailId}`; //need to replace with render server address when deploying
+  const url = `${serverURL}/usercocktails/${cocktailId}`;
 
   try {
     const response = await fetch(url, {

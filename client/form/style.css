@@ -72,6 +72,7 @@ nav {
   font-size: 28px;
   height: 100vh;
   width: 100%;
+  background-image: url(../client/assets/body.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -113,6 +114,10 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+#alcoholic {
+  width: fit-content;
 }
 
 button {
