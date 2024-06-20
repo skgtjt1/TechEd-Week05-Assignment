@@ -1,5 +1,20 @@
+//Hamburger icon animation function
+const container = document.getElementById("hamb-container");
+const ul = document.querySelector("nav ul");
+
+container.addEventListener("click", function () {
+  this.classList.toggle("showing");
+  ul.classList.toggle("showing");
+
+  if (ul.classList.contains("showing")) {
+    ul.style.display = "block";
+  } else {
+    ul.style.display = "none";
+  }
+});
+
 const form = document.getElementById("user-form");
-const serverURL = "hhttps://teched-week05-assignment.onrender.com"; // made this a variable since I got sick of swttching the address for all endpoints when testing locally
+const serverURL = "http://localhost:6969"; // made this a variable since I got sick of swttching the address for all endpoints when testing locally
 //this is the current render.com server address https://teched-week05-assignment.onrender.com
 
 async function fetchAndShowUserCocktails() {
@@ -20,6 +35,7 @@ async function fetchAndShowUserCocktails() {
     const difficultyDiv = document.createElement("div");
     const alcoholicDiv = document.createElement("div");
     const submissionDateDiv = document.createElement("div");
+    const userScoreDiv = document.createElement("div");
 
     usernameDiv.innerHTML = `<p><span style="font-weight: bold;">Username: </span>${cocktail.username}</p>`;
     cocktailNameDiv.innerHTML = `<p><span style="font-weight: bold;">Cocktail: </span>${cocktail.cocktail_name}</p>`;
@@ -28,6 +44,7 @@ async function fetchAndShowUserCocktails() {
     difficultyDiv.innerHTML = `<p><span style="font-weight: bold;">Difficulty: </span>${cocktail.difficulty}</p>`;
     const alcoholicText = cocktail.alcoholic ? "Yes" : "No";
     alcoholicDiv.innerHTML = `<p><span style="font-weight: bold;">Alcohol: </span>${alcoholicText}</p>`;
+    userScoreDiv.innerHTML = `<p>User Score: <span id="score-${cocktail.id}">${cocktail.user_score}</span></p>`; //adding id using span
     submissionDateDiv.innerHTML = `<p style="font-style: italic; font-size: smaller;"> ${new Date(
       cocktail.submission_date
     ).toLocaleString([], {
@@ -36,8 +53,23 @@ async function fetchAndShowUserCocktails() {
       day: "numeric",
     })}</p>`;
 
+    const upvoteButton = document.createElement("button");
+    upvoteButton.innerText = "Upvote";
+    upvoteButton.onclick = async function () {
+      await updateUserScore(cocktail.id, 1);
+      fetchAndShowUserCocktails(); // Refresh the list after upvote
+    };
+
+    const downvoteButton = document.createElement("button");
+    downvoteButton.innerText = "Downvote";
+    downvoteButton.onclick = async function () {
+      await updateUserScore(cocktail.id, -1);
+      fetchAndShowUserCocktails(); // Refresh the list after downvote
+    };
+
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
+    deleteButton.classList.add("deletebutton");
     deleteButton.onclick = async function () {
       await deleteCocktail(cocktail.id);
       fetchAndShowUserCocktails(); // Refresh the list after deletion
@@ -50,8 +82,11 @@ async function fetchAndShowUserCocktails() {
       recipeDiv,
       difficultyDiv,
       alcoholicDiv,
-      submissionDateDiv,
-      deleteButton
+      userScoreDiv,
+      upvoteButton,
+      downvoteButton,
+      deleteButton,
+      submissionDateDiv
     );
 
     cocktailListDiv.appendChild(cocktailDiv);
@@ -109,6 +144,30 @@ async function deleteCocktail(cocktailId) {
       console.log("Cocktail deleted successfully:", data);
     } else {
       console.error("Failed to delete cocktail:", data.message);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+async function updateUserScore(cocktailId, value) {
+  const url = `${serverURL}/usercocktails/${cocktailId}/score`;
+
+  try {
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ value }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log("User score updated successfully:", data);
+    } else {
+      console.error("Failed to update user score:", data.message);
     }
   } catch (error) {
     console.error("Error:", error);
