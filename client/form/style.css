@@ -34,7 +34,7 @@ nav ul li a:hover {
 
 nav {
   width: 100%;
-  height: 100px;
+  height: 80px;
   position: relative;
   background-color: rgb(0, 0, 0);
   z-index: 5;
@@ -44,10 +44,10 @@ nav {
 nav ul {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 4%;
-  font-size: 0.1em;
   height: 80px;
-  padding: 40px 50px 15px 50px;
+  padding-right: 10px;
   z-index: 100;
   color: black;
 }
@@ -55,7 +55,7 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 25px; /* Base font size */
+  font-size: 20px; /* Base font size */
 }
 
 nav ul li a:hover {
@@ -117,6 +117,7 @@ footer {
 }
 
 main {
+  max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
   background: white;
@@ -198,21 +199,9 @@ button:hover {
 
 /* Media Queries */
 @media (max-width: 700px) {
-  nav ul {
-  }
-
-  nav ul li {
-  }
-
-  nav ul li a {
-  }
-
   #hamb-container {
     display: flex;
     justify-content: flex-end;
-  }
-
-  .showing nav ul {
   }
 }
 /* 
