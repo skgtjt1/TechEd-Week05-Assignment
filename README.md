@@ -38,3 +38,8 @@ Describing errors or bugs you encountered while completing your assignment.
 
 References:
 Third-party APIs, CSS resets, icons, images...
+
+# Current bug list:
+
+- upvote and downvote change the order of the saved user cocktails
+- nav hamburger icon in user cocktails page is not styled well
