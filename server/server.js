@@ -90,3 +90,32 @@ app.delete("/usercocktails/:id", async (req, res) => {
     res.status(500).json({ success: false });
   }
 });
+
+app.patch("/usercocktails/:id/score", async (req, res) => {
+  const { id } = req.params;
+  const { value } = req.body;
+
+  if (typeof value !== "number") {
+    return res
+      .status(400)
+      .json({ success: false, message: "Invalid score value" });
+  }
+
+  try {
+    const result = await db.query(
+      `UPDATE cocktails SET user_score = user_score + $1 WHERE id = $2 RETURNING user_score`,
+      [value, id]
+    );
+
+    if (result.rowCount > 0) {
+      res
+        .status(200)
+        .json({ success: true, user_score: result.rows[0].user_score });
+    } else {
+      res.status(404).json({ success: false, message: "Cocktail not found" });
+    }
+  } catch (error) {
+    console.error("Failed to update user score", error);
+    res.status(500).json({ success: false });
+  }
+});
