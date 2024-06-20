@@ -10,9 +10,9 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://shakers-choice.onrender.com",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Content-Type, Authorization",
+    // origin: "http://localhost:5173",
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // allowedHeaders: "Content-Type, Authorization",
   })
 );
 
