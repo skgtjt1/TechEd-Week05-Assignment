@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="style.css" />
     <title>Shaker's Choice</title>
   </head>
-
   <body>
     <!-- Nav bar for landing page -->
     <header>
@@ -35,19 +34,6 @@
       </div>
     </header>
     <!-- END OF : Nav bar for landing page -->
-    <!-- SEARCH BAR -->
-    <div class="search-bar">
-      <input
-        type="text"
-        name="search-bar"
-        id="search-bar"
-        placeholder="Find your poison..."
-      />
-      <button id="search-bar-button" type="submit">Search</button>
-    </div>
-    <!-- END OF - SEARCH BAR -->
-
-    <!-- HERO SECTION -->
     <div class="hero-section">
       <h1 class="hero-h1">Welcome To <span>The Shaker's Choice</span> bruv</h1>
       <h2 class="hero-h2">find your poison!</h2>
@@ -57,13 +43,31 @@
         we will give you some suggestions or alternatives to your usual!
       </p>
       <section id="drink-suggestion-div"></section>
+          <!-- SEARCH BAR -->
+    <div class="search-bar">
+      <input
+        type="text"
+        name="search-bar"
+        id="search-bar"
+        placeholder="Find your poison..."
+      />
+      <button id="search-bar-button" type="submit">Search</button>
     </div>
+    </div>
+    <!-- END OF - SEARCH BAR -->
     <!--END OF -  HERO SECTION -->
-
-    <div id="app"></div>
-
+    
+    <!-- a new section container for drink suggestions -->
+    <section class="drinks-section-container">
+      <!-- <img src="" alt=""> -->
+      <div class="containers drink-list-container" id="drink-list-div">
+      </div>
+      <div class="containers drink-detail-container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum earum eos atque aliquam autem fugiat aut id officia iste dolorem velit enim voluptatem at, reprehenderit culpa impedit ipsum dolor ducimus minus. Dolores mollitia consequuntur rerum facilis vitae architecto omnis nam cumque deserunt obcaecati officiis dolor nihil porro commodi consequatur voluptates, dicta earum autem labore nisi molestias eligendi velit repellat explicabo. Sit vitae adipisci fuga possimus nam, delectus minima beatae quidem quo similique consequuntur tenetur, ex, accusamus quaerat officia ipsa facilis. Officiis rem quaerat vero error molestias, debitis illum perspiciatis blanditiis quis! Quia nostrum sint reprehenderit officiis? Quasi illo corrupti labore!</p>
+      </div>
+    </section> 
+  </main>
     <footer>Made by Justin, Emily, Ramunas &copy;2024</footer>
-
     <script type="module" src="main.js"></script>
   </body>
 </html>

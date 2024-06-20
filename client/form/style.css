@@ -8,12 +8,15 @@ body {
   background-image: url(../assets/limes.jpg);
 }
 
+span {
+  color: blueviolet;
+}
+
 #header-icon {
   position: absolute;
   font-size: 1.4em;
   top: 25%;
   color: #fff;
-  position: absolute;
   left: 2%;
 }
 
@@ -28,32 +31,8 @@ nav ul li a:hover {
   display: flex;
   background-color: rgb(255, 255, 255);
 }
-nav ul {
-  display: flex;
-  justify-content: flex-end;
-  gap: 4%;
-  font-size: 0.8em;
-  height: 80px;
-  padding: 40px 100px 15px 50px;
-  z-index: 100;
-  color: black;
-}
 
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 25px; /* Base font size */
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
-}
-
-nav ul li a:hover {
-  background-color: rgb(255, 255, 255);
-  font-size: 25.22px;
-}
 nav {
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: flex-end;
   width: 100%;
   height: 100px;
   position: relative;
@@ -62,9 +41,26 @@ nav {
   position: fixed;
 }
 
-.ul li {
-  justify-self: center;
-  align-self: center;
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4%;
+  font-size: 0.8em;
+  height: 80px;
+  padding: 40px 50px 15px 50px;
+  z-index: 100;
+  color: black;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px; /* Base font size */
+}
+
+nav ul li a:hover {
+  background-color: rgb(255, 255, 255);
+  font-size: 25.22px;
 }
 
 .logo {
@@ -77,8 +73,49 @@ nav {
   background-position: center;
 }
 
+/* =============HAMBURGER NAV ICON ==================*/
+#hamb-container {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 3%;
+  top: 20px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #ffffff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+footer {
+  position: absolute;
+  bottom: -30px;
+  left: 10px;
+  font-size: 1.1em;
+  color: #fff;
+  height: 50px;
+  width: 100%;
+}
+
+/* Animation for the hamburger on mobile viewport */
+.showing .bar1 {
+  transform: rotate(-45deg) translate(-5px, 8px);
+}
+
+.showing .bar2 {
+  opacity: 0;
+}
+
+.showing .bar3 {
+  transform: rotate(45deg) translate(-5px, -8px);
+}
+
 main {
-  /* max-width: 800px; */
   margin: 2rem auto;
   padding: 1rem;
   background: white;
@@ -107,7 +144,6 @@ label {
 input,
 textarea {
   width: 100%;
-  /* min-width: 100%; */
   height: fit-content;
   padding: 0.5rem;
   margin-top: 0.5rem;
@@ -152,6 +188,44 @@ button:hover {
 
 .cocktail-results p {
   margin: 0.5rem 0;
+}
+
+.deletebutton {
+  background-color: red;
+  justify-content: end;
+}
+
+/* Media Queries */
+@media (max-width: 700px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  #hamb-container {
+    display: inline-block;
+  }
+
+  .showing nav ul {
+    display: flex;
+  }
 }
 
 @media (min-width: 700px) {

@@ -10,7 +10,8 @@ db.query(`CREATE TABLE IF NOT EXISTS cocktails(
     recipe TEXT,
     difficulty INT,
     alcoholic BOOLEAN,
-    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_score INT DEFAULT 0
 
     )`);
 
@@ -21,5 +22,7 @@ db.query(`CREATE TABLE IF NOT EXISTS cocktails(
 //         4,
 //         '1 ounce vodka, lemon wedge, dash of lime, fill rest of glass with soda',
 //          2,
-//          TRUE)
+//          TRUE,
+
+//          )
 //         `);
