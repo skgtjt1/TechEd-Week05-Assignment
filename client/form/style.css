@@ -34,7 +34,7 @@ nav ul li a:hover {
 
 nav {
   width: 100%;
-  height: 100px;
+  height: 80px;
   position: relative;
   background-color: rgb(0, 0, 0);
   z-index: 5;
@@ -44,10 +44,10 @@ nav {
 nav ul {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 4%;
-  font-size: 0.8em;
   height: 80px;
-  padding: 40px 50px 15px 50px;
+  padding-right: 10px;
   z-index: 100;
   color: black;
 }
@@ -55,7 +55,7 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 25px; /* Base font size */
+  font-size: 20px; /* Base font size */
 }
 
 nav ul li a:hover {
@@ -65,6 +65,7 @@ nav ul li a:hover {
 
 .logo {
   color: #fff;
+  display: flex;
   font-size: 28px;
   height: 100vh;
   width: 100%;
@@ -116,6 +117,7 @@ footer {
 }
 
 main {
+  max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
   background: white;
@@ -197,37 +199,12 @@ button:hover {
 
 /* Media Queries */
 @media (max-width: 700px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100px;
-    left: 0;
-    background-color: rgb(0, 0, 0);
-    padding: 0;
-    margin: 0;
-  }
-
-  nav ul li {
-    text-align: center;
-    padding: 15px 0;
-    width: 100%;
-  }
-
-  nav ul li a {
-    font-size: 20px;
-  }
-
   #hamb-container {
-    display: inline-block;
-  }
-
-  .showing nav ul {
     display: flex;
+    justify-content: flex-end;
   }
 }
-
+/* 
 @media (min-width: 700px) {
   main {
     max-width: 900px;
@@ -280,7 +257,7 @@ button:hover {
     background-color: #444;
   }
 
-  /* Results Section */
+
   #form-results {
     margin-top: 2rem;
   }
@@ -296,4 +273,4 @@ button:hover {
   .cocktail-results p {
     margin: 0.5rem 0;
   }
-}
+} */
