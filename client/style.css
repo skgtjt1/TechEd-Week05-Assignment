@@ -22,6 +22,15 @@ Background Color:
   box-sizing: border-box;
 }
 
+/* a fix for the background image overflow, which caused scroll bars to appear */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  /* overflow: hidden; */
+}
+
 span {
   color: blueviolet;
 }
@@ -45,6 +54,8 @@ nav ul li a:hover {
   width: 100%;
   display: flex;
   background-color: rgb(255, 255, 255);
+  margin-bottom: 120px;
+
 }
 
 nav {
@@ -86,6 +97,7 @@ nav ul li a:hover {
   background-image: url(../client/assets/body.jpg);
   background-size: cover;
   background-position: center;
+  
 }
 
 /* =============HAMBURGER NAV ICON ==================*/
@@ -157,16 +169,90 @@ footer {
 }
 /* ======================================================================== */
 
+
+/* ==========================DRINKS THUMBNAIL PART =======================*/
+main {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+}
+
+.drink-thumb {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}
+
+img {
+  overflow:scroll;
+}
+
+.drink-detail-container {
+  background-color: green;
+  width: 400px;
+  height: 400px;
+}
+
+.drinks-section-container {
+  display: flex;
+  justify-content: space-around;
+  width: fit-content;
+  /* background-color: red; */
+  height: 500px;
+  margin: 20px;
+  z-index: 2;
+}
+
+.containers {
+  /* flex: 1; */
+  padding: 10px;
+}
+
+.drink-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 40px;
+}
+
+.drink-item {
+  text-align: center;
+  border: 1 px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.drink-item img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#drink-list-div {
+  background-color: red;
+  width: 1000px;
+  height: 1000px;
+  padding: 50px;
+}
+
+/*=================================END OF DRINKS THUMBNAIL PART =============*/
+
+
 /* ==================================== HERO SECTION ============================================== */
 .hero-section {
-  position: absolute;
-  width: 1000px;
-  height: 700px;
-  background-color: rgb(255, 255, 255);
-  z-index: 2;
-  opacity: 0.9;
-  left: 100px;
-  border-radius: 1em;
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+    opacity: .9;
+    left: 100px;
+    border-radius: 1em;
+    /* overflow: unset; */
+
 }
 
 .hero-h1 {
@@ -262,18 +348,21 @@ footer {
     z-index: 100;
   }
 
-  #header-icon {
-    position: absolute;
-    top: 25px;
-    left: 6%;
-    color: rgb(255, 255, 255);
-  }
+#drink-suggestion-div {
+  position: relative;
+  background-color: #fff;
+}
+ /*        FOOTER STYLES */
+footer {
+  position: absolute;
+  bottom: -30px;
+  left: 10px;
+  font-size: 1.1em;
+  color: #fff;
+  height: 50px;
+  width: 100%;
+}
 
-  .search-bar {
-    width: 90%;
-    flex-direction: column;
-    margin: 20px;
-  }
 
   .search-bar input {
     width: 100%;
@@ -300,11 +389,8 @@ footer {
     background-color: rgb(255, 255, 255);
   }
 
-  .hero-h1 {
-    padding: 20px;
-    font-size: 45px;
-    line-height: 2em;
-  }
+/* ================================ MEDIA QUERIES ==================================================== */
+
 
   .hero-h2 {
     position: relative;
