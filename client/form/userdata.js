@@ -1,5 +1,5 @@
 const form = document.getElementById("user-form");
-const serverURL = "ttps://teched-week05-assignment.onrender.com"; // made this a variable since I got sick of swttching the address for all endpoints when testing locally
+const serverURL = "https://teched-week05-assignment.onrender.com"; // made this a variable since I got sick of swttching the address for all endpoints when testing locally
 //this is the current render.com server address https://teched-week05-assignment.onrender.com
 
 async function fetchAndShowUserCocktails() {
