@@ -45,7 +45,7 @@ nav ul {
   display: flex;
   justify-content: flex-end;
   gap: 4%;
-  font-size: 0.8em;
+  font-size: 0.1em;
   height: 80px;
   padding: 40px 50px 15px 50px;
   z-index: 100;
@@ -65,6 +65,7 @@ nav ul li a:hover {
 
 .logo {
   color: #fff;
+  display: flex;
   font-size: 28px;
   height: 100vh;
   width: 100%;
@@ -198,36 +199,23 @@ button:hover {
 /* Media Queries */
 @media (max-width: 700px) {
   nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100px;
-    left: 0;
-    background-color: rgb(0, 0, 0);
-    padding: 0;
-    margin: 0;
   }
 
   nav ul li {
-    text-align: center;
-    padding: 15px 0;
-    width: 100%;
   }
 
   nav ul li a {
-    font-size: 20px;
   }
 
   #hamb-container {
-    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .showing nav ul {
-    display: flex;
   }
 }
-
+/* 
 @media (min-width: 700px) {
   main {
     max-width: 900px;
@@ -280,7 +268,7 @@ button:hover {
     background-color: #444;
   }
 
-  /* Results Section */
+
   #form-results {
     margin-top: 2rem;
   }
@@ -296,4 +284,4 @@ button:hover {
   .cocktail-results p {
     margin: 0.5rem 0;
   }
-}
+} */

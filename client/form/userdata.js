@@ -1,20 +1,5 @@
-//Hamburger icon animation function
-const container = document.getElementById("hamb-container");
-const ul = document.querySelector("nav ul");
-
-container.addEventListener("click", function () {
-  this.classList.toggle("showing");
-  ul.classList.toggle("showing");
-
-  if (ul.classList.contains("showing")) {
-    ul.style.display = "block";
-  } else {
-    ul.style.display = "none";
-  }
-});
-
 const form = document.getElementById("user-form");
-const serverURL = "http://localhost:6969"; // made this a variable since I got sick of swttching the address for all endpoints when testing locally
+const serverURL = "ttps://teched-week05-assignment.onrender.com"; // made this a variable since I got sick of swttching the address for all endpoints when testing locally
 //this is the current render.com server address https://teched-week05-assignment.onrender.com
 
 async function fetchAndShowUserCocktails() {
